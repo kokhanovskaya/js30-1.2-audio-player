@@ -1,0 +1,97 @@
+ 
+ html {
+    font-size: calc(1vw/12.8);
+    @media (max-width: 768px) {
+        font-size: calc(1vw/7.68);
+    }
+    @media (max-width: 320px) {
+        font-size: calc(1vw/3.2);
+    }
+}
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(img/cover1.jpg);
+    background-size: cover;
+    backdrop-filter: blur();
+    backdrop-filter: blur(6px);
+}
+
+.player {
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img_player {
+    box-shadow: 0 0 30rem rgba(0, 0, 0, 0.8);
+    border-radius: 30rem;
+    width: 562rem;
+    height: 562rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20rem;
+    position: relative;
+    top: -200rem;
+    backdrop-filter: blur(25px);
+    width: 562rem;
+    border-radius: 30rem;
+}
+
+.name_and_button {
+    display: flex;
+    padding: 15rem;
+    justify-content: space-between;
+}
+
+.name-of-song {
+display: flex;
+flex-direction: column;
+} 
+
+.song {
+    font-size: 30rem;
+    text-shadow: 3px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.artist {
+    font-size: 20rem;
+    text-shadow: 3px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.pre-nex_button {
+    display: flex;
+    flex-direction: column;
+}
+
+.play,
+.next,
+.prev {
+    background: none;
+    border: none;
+    width: 50rem;
+    height: 50rem;
+    cursor: pointer;
+}
+
+.play{
+    transform: rotate(270deg);
+    padding: 15rem;
+    width: 60rem;
+}
+
+.prev {
+    transform: rotate(180deg);
+}
+
+
+.img_button {
+    width: 100%;
+}
