@@ -7,8 +7,11 @@ const player = document.querySelector('.player'),
     progress = document.querySelector('.progress'),
     imgPlayeer = document.querySelector('.img_player'),
     title = document.querySelector('.song')
+    body = document.body;
 
-const songs = ['Rihanna ft Jay Z- Umbrella', 'Linkin Park - My December', 'Tyga - Ice Cream Man']
+const songs = ['Rihanna ft Jay Z- Umbrella', 'Linkin Park - My December', 'Tyga - Ice Cream Man'];
+const backgrounds = ['img/bkr1.jpg', 'img/bkr2.jpg', 'img/bkr3.jpg'];
+
 
 let songIndex = 0
 
@@ -16,6 +19,8 @@ function loadSong(song) {
     title.innerHTML = song;
     audio.src = `audio/${song}.mp3`;
     imgPlayeer.src = `img/cover${songIndex + 1}.jpg`;
+    body.style.backgroundImage = `url(${backgrounds[songIndex]})`;
+
 }
 loadSong(songs[songIndex]);
 
@@ -70,4 +75,17 @@ function updateProgress(e) {
     const progressPercent  = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
 }
-audio.addEventListener('timeupdate', updateProgress)
+audio.addEventListener('timeupdate', updateProgress);
+
+//перемотка
+
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+
+    audio.currentTime = (clickX / width) * duration;
+}
+progressContaineer.addEventListener('click', setProgress)
+
+audio.addEventListener('ended', nextSong)
