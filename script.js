@@ -8,7 +8,7 @@ const player = document.querySelector('.player'),
     imgPlayeer = document.querySelector('.img_player'),
     title = document.querySelector('.song')
 
-const songs = ['Umbrella', 'MyDsmbr', 'Ice cream man']
+const songs = ['Rihanna ft Jay Z- Umbrella', 'Linkin Park - My December', 'Tyga - Ice Cream Man']
 
 let songIndex = 0
 
@@ -20,16 +20,16 @@ function loadSong(song) {
 loadSong(songs[songIndex]);
 
 function playSong() {
-    player.classList.add('play');
+    player.classList.add('playing');
     audio.play();
 }
 function pauseSong() {
-    player.classList.remove('play');
+    player.classList.remove('playing');
     audio.pause();
 }
 
 playBtn.addEventListener('click', () => {
-    const isPlaying = player.classList.contains('play');
+    const isPlaying = player.classList.contains('playing');
     if (isPlaying) {
         pauseSong();
     }
@@ -37,3 +37,37 @@ playBtn.addEventListener('click', () => {
         playSong();
     }
 });
+
+function nextSong () {
+    songIndex++;
+
+    if (songIndex > songs.length - 1){
+        songIndex = 0;
+    }
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+nextBtn.addEventListener('click', nextSong)
+
+function prevSong () {
+    songIndex --;
+
+    if (songIndex < 0) {
+        songIndex = songs.length - 1;
+    }
+    loadSong(songs[songIndex]);
+    playSong();
+    
+}
+
+prevBtn.addEventListener('click', prevSong)
+
+//progress bar
+
+function updateProgress(e) {
+    const {duration, currentTime} = e.srcElement;
+    const progressPercent  = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+}
+audio.addEventListener('timeupdate', updateProgress)
