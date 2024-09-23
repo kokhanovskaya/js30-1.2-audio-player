@@ -22,13 +22,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
 }
 
 .img_player {
     box-shadow: 0 0 30rem rgba(0, 0, 0, 0.8);
     border-radius: 30rem;
-    width: 562rem;
-    height: 562rem;
+    width: 362rem;
+    height: 362rem;
     object-fit: cover;
     margin-top: 150rem;
 
@@ -40,9 +41,9 @@ body {
     justify-content: space-around;
     margin-top: 20rem;
     position: relative;
-    top: -220rem;
+    top: -160rem;
     backdrop-filter: blur(25px);
-    width: 562rem;
+    width: 362rem;
     border-radius: 30rem;
 }
 
@@ -58,7 +59,7 @@ flex-direction: column;
 } 
 
 .song {
-    font-size: 30rem;
+    font-size: 20rem;
     text-shadow: 3px 1px 2px rgba(255, 255, 255, 0.5);
     margin-top: 30rem;
 }
@@ -73,15 +74,17 @@ flex-direction: column;
 .prev {
     background: none;
     border: none;
-    width: 50rem;
-    height: 50rem;
+    width: 30rem;
+    height: 30rem;
     cursor: pointer;
 }
 
 .play{
     transform: rotate(-90deg);
-    width: 60rem;
+    width: 40rem;
 }
+
+
 
 .prev {
     transform: rotate(180deg);
@@ -112,4 +115,30 @@ flex-direction: column;
         height: 100%;
     }
 
+footer {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    padding: 20rem;
+    justify-content: space-around;
+}
 
+.img_logo {
+    height: 100%;
+}
+
+.img_logo:hover {
+    transform: scale(1.1);
+}
+
+.github {
+    font-size: 20rem;
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.github:hover {
+    color: rgb(220, 235, 181);
+    text-decoration: solid;
+    transform: scale(1.1);
+}
